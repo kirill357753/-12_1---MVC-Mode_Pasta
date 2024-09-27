@@ -2,14 +2,14 @@ class PastaController:
     def __init__(self, model):
         self.model = model
 
-    def menu_cafe(self):
+    def get_menu_cafe(self):
         pasta_data = (f"Паста :: {self.model.get_name()}\n"
                      f"Состав :: {self.model.get_ingredients()}\n"
                      f"Цена :: {self.model.get_price()}\n"
                      f"Вес :: {','.join(self.model.get_weight())}\n")
         return pasta_data
         
-    def site_menu(self):
+    def get_site_menu(self):
         pasta_data = (f"Паста :: {self.model.get_name()}\n"
                      f"Состав :: {','.join(self.model.get_ingredients())}\n"
                      f"Цена :: {self.model.get_price()}\n"
