@@ -13,7 +13,7 @@ class Pasta:
     def get_ingredients(self):
         return self.__ingredients
 
-    def get_get_price(self):
+    def get_price(self):
         return self.__price
 
     def get_weight(self):
