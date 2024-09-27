@@ -1,10 +1,12 @@
 class Pasta:
-    def __init__(self, name: str, ingredients: list, price: float, weight: float, additional_ingredients: list=None):
+    def __init__(self, name: str, ingredients: list, price: float, weight: float, picture, additional_ingredients: list=None):
         self.__name = name  
         self.__ingredients = ingredients  
         self.__price = price  
         self.__weight = weight  
+        self.__picture = picture
         self.__additional_ingredients = additional_ingredients if additional_ingredients is not None else []
+        
 
     #Геттеры
     def get_name(self):
@@ -19,6 +21,9 @@ class Pasta:
     def get_weight(self):
         return self.__weight
     
+    def get_picture(self):
+        return self.__picture
+    
     def get_additional_ingredients(self):
         return self.__additional_ingredients
 
@@ -26,8 +31,11 @@ class Pasta:
     def set_price(self, new_price):
         self.__price = new_price
         
-    def weight(self, new_weight):
+    def set_weight(self, new_weight):
         self.__weight = new_weight
+        
+    def set_picture(self, new_picture):
+        self.__picture = new_picture
         
     def set_ingredient(self, new_ingredient: list):
         if type(new_ingredient) is list:
