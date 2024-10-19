@@ -4,37 +4,54 @@ class PastaView:
 
     def show_cafe_menu(self):
         print(self.controller.menu_cafe())
-        
+
     def show_site_menu(self):
         print(self.controller.site_menu())
-    
-    def set_ingredients(self,user_right, new_ingredients):
-        if type (new_ingredients) is not list:
+
+    def set_ingredients(self, user_right, new_ingredients):
+        if type(new_ingredients) is not list:
             print("Неверный тип данных!")
-        elif self.controller.set_price(user_right, new_price) == "banned":
+            return
+        set_ingredients_response = self.controller.set_price(user_right, new_ingredients)
+        if set_ingredients_response == "banned":
             print("Нет права доступа")
         else:
-            print(self.controller.set_ingredients(user_right, new_ingredients))
-            
-    def set_price(self,user_right, new_price):
+            print(set_ingredients_response)
+
+    def set_price(self, user_right, new_price):
         if new_price.isdigit() is False:
             print("Допустимы только циры!")
-        elif self.controller.set_price(user_right, new_price) == "banned":
+            return
+        set_price_response = self.controller.set_price(user_right, new_price)
+        if set_price_response == "banned":
             print("Нет права доступа")
         else:
-            print(self.controller.set_price(user_right, new_price))
-    
-    def set_weight(self,user_right, new_weight):
+            print(set_price_response)
+
+    def set_weight(self, user_right, new_weight):
         if new_weight.isdigit() is False:
             print("Допустимы только циры!")
-        elif self.controller.set_weight(user_right, new_weight) == "banned":
+            return
+        set_weight_response = self.controller.set_weight(user_right, new_weight)
+        if set_weight_response == "banned":
             print("Нет права доступа")
         else:
-            print(self.controller.set_weight(user_right, new_weight))
-            
-    def set_picture(self,user_right, new_picture):
-        if self.controller.set_picture(user_right, new_picture) == "banned":
+            print(set_weight_response)
+
+    def set_picture(self, user_right, new_picture):
+        set_picture_response = self.controller.set_picture(user_right, new_picture)
+        if  set_picture_response == "banned":
             print("Нет права доступа")
         else:
-            print(self.controller.set_picture(user_right, new_picture))
-            
+            print(set_picture_response)
+
+    def save_order_to_json(self,order):
+        print(self.controller.save_order_to_json(order))
+
+    def get_data_from_json(self,user_right,  filename):
+        get_data_from_json_response = self.controller.get_data_from_json(user_right, filename)
+        if get_data_from_json_response == 'banned':
+            print("Нет права доступа")
+        else:
+            print(get_data_from_json_response)
+
