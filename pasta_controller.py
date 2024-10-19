@@ -47,5 +47,12 @@ class PastaController:
             return "Картинка изменена"
         else:
             return "banned"
-        
-        
+
+    def save_order_to_json(self, order):
+        return  self.model.save_order_to_json(order)
+
+    def get_data_from_json(self, user_right, filename):
+        if user_right in ["Admin", "IsStaff", "IsSuperuser"]:
+            return  self.model.get_data_from_json(filename)
+        else:
+            return "banned"
